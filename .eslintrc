@@ -7,7 +7,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended" // has to be the last one
   ],
-  "rules": {}
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

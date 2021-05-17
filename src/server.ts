@@ -6,4 +6,4 @@ const app = new Koa()
 /** Top-level Middlewares */
 app.use(bodyParser())
 
-export default app;
+export default app
