@@ -1,0 +1,26 @@
+{
+  "name": "guardana-server",
+  "version": "1.0.0",
+  "description": "API do Guardana",
+  "main": "index.js",
+  "repository": "git@github.com:jonathangaldino/guardana-server.git",
+  "author": "Jonathan Galdino <johnzballad@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/node": "^7.14.2",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/koa": "^2.13.1",
+    "@types/koa-bodyparser": "^4.3.0",
+    "typescript": "^4.2.4"
+  }
+}
