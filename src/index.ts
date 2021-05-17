@@ -1,3 +1,14 @@
+import config from './config'
 import app from './server'
+import database from './database'
 
-app.listen(3000, () => console.log('Koa started at port 3000'))
+const startApp = async () => {
+  await database.connectDatabase()
+  app.listen(config.PORT, () =>
+    console.log(
+      `Guardana server is running at port ${config.PORT} - happy hunting! ;)`,
+    ),
+  )
+}
+
+startApp()
