@@ -1,8 +1,8 @@
-import UserModel from '../database/schemas/userSchema'
-import User from '../models/User'
+import UserSchema from './UserSchema'
+import User from './UserModels'
 
 interface Dependencies {
-  userSchema: typeof UserModel
+  userSchema: typeof UserSchema
 }
 
 interface CreatePayload {

@@ -9,6 +9,9 @@ const app = new Koa()
 app.use(bodyParser())
 /** ---------------------- */
 
-app.use(routes.routes())
+/**
+ * Load each route
+ */
+routes.forEach((route) => app.use(route.routes()))
 
 export default app

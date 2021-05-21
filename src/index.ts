@@ -4,6 +4,7 @@ import database from './database'
 
 const startApp = async () => {
   await database.connectDatabase()
+
   app.listen(config.PORT, () =>
     console.log(
       `Guardana server is running at port ${config.PORT} - happy hunting! ;)`,

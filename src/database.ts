@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-import Config from '../config'
+import Config from './config'
 
 declare module 'mongoose' {
   interface ConnectionBase {
