@@ -1,11 +1,15 @@
 import UserSchema from '../UserSchema'
 import { User as User } from '../UserModels'
-import { hashPassword } from '../utils/auth'
+import { generateToken, hashPassword } from '../utils/auth'
 
 export type Input = {
   name: string
   email: string
   unhashedPassword: string
+}
+
+interface Output extends Partial<User> {
+  token: string
 }
 
 const createUser = async ({ name, email, unhashedPassword }: Input) => {
@@ -23,12 +27,13 @@ const createUser = async ({ name, email, unhashedPassword }: Input) => {
   })
   await user.save()
 
-  const _user: Partial<User> = {
+  const output: Output = {
     name: user.name,
     email: user.email,
+    token: generateToken({ email: user.email }),
   }
 
-  return _user
+  return output
 }
 
 export default createUser

@@ -3,8 +3,9 @@ import UserController from './UserControllers'
 
 const router: Router = new Router()
 
-router.prefix('/users').post('/', UserController.postUsers)
-
-router.prefix('/auth').post('/', UserController.postAuth)
+router
+  .prefix('/users')
+  .post('/', UserController.postUsers)
+  .post('/auth', UserController.postAuth)
 
 export default router

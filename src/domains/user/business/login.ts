@@ -11,7 +11,7 @@ interface Output extends Partial<User> {
   token: string
 }
 
-const logIn = async ({ email, unhashedPassword }: Input): Promise<Output> => {
+const logIn = async ({ email, unhashedPassword }: Input) => {
   const user = await UserSchema.findOne({ email })
 
   if (!user) {
@@ -25,11 +25,13 @@ const logIn = async ({ email, unhashedPassword }: Input): Promise<Output> => {
     throw new Error('Email or Password is invalid')
   }
 
-  return {
+  const output: Output = {
     name: user.name,
     email: user.email,
     token: generateToken({ email: user.email }),
   }
+
+  return output
 }
 
 export default logIn
