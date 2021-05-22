@@ -1,5 +1,6 @@
 import UserSchema from '../UserSchema'
 import { User as User } from '../UserModels'
+import { hashPassword } from '../utils/auth'
 
 export type Input = {
   name: string
@@ -15,7 +16,11 @@ const createUser = async ({ name, email, unhashedPassword }: Input) => {
   }
 
   // create user
-  const user = new UserSchema({ name, email, password: unhashedPassword })
+  const user = new UserSchema({
+    name,
+    email,
+    password: hashPassword(unhashedPassword),
+  })
   await user.save()
 
   const _user: Partial<User> = {
