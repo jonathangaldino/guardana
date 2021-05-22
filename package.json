@@ -21,6 +21,7 @@
   "dependencies": {
     "@koa/router": "^10.0.0",
     "dotenv-safe": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "mongoose": "^5.12.9"
@@ -33,6 +34,7 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-typescript": "^7.13.0",
     "@types/dotenv-safe": "^8.1.1",
+    "@types/jsonwebtoken": "^8.5.1",
     "@types/koa": "^2.13.1",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa__router": "^8.0.4",

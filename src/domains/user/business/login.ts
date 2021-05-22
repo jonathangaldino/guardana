@@ -1,13 +1,17 @@
 import UserSchema from '../UserSchema'
 import { User as User } from '../UserModels'
-import { hashPassword } from '../utils/auth'
+import { hashPassword, generateToken } from '../utils/auth'
 
 export type Input = {
   email: string
   unhashedPassword: string
 }
 
-const logIn = async ({ email, unhashedPassword }: Input) => {
+interface Output extends Partial<User> {
+  token: string
+}
+
+const logIn = async ({ email, unhashedPassword }: Input): Promise<Output> => {
   const user = await UserSchema.findOne({ email })
 
   if (!user) {
@@ -21,12 +25,11 @@ const logIn = async ({ email, unhashedPassword }: Input) => {
     throw new Error('Email or Password is invalid')
   }
 
-  const _user: Partial<User> = {
+  return {
     name: user.name,
     email: user.email,
+    token: generateToken({ email: user.email }),
   }
-
-  return _user
 }
 
 export default logIn
