@@ -1,3 +1,5 @@
-import UserDomain from './user'
+import UserRoutes from './user/UserRoutes'
 
-export { UserDomain }
+export const UserDomain = {
+  UserRoutes,
+}

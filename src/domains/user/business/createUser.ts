@@ -1,4 +1,5 @@
-import { UserRepository } from '../UserRepository'
+import UserSchema from '../UserSchema'
+import { User as User } from '../UserModels'
 
 export type Input = {
   name: string
@@ -6,21 +7,23 @@ export type Input = {
   unhashedPassword: string
 }
 
-const createUser = async (
-  userRepository: UserRepository,
-  { name, email, unhashedPassword }: Input,
-) => {
-  const userExists = false
+const createUser = async ({ name, email, unhashedPassword }: Input) => {
+  const userExists = await UserSchema.findOne({ email })
 
   if (userExists) {
-    // throw app error with status code and message
+    throw new Error('User already exists')
   }
 
-  await userRepository.create({
-    name,
-    email,
-    password: unhashedPassword,
-  })
+  // create user
+  const user = new UserSchema({ name, email, password: unhashedPassword })
+  await user.save()
+
+  const _user: Partial<User> = {
+    name: user.name,
+    email: user.email,
+  }
+
+  return _user
 }
 
 export default createUser
