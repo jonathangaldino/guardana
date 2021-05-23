@@ -1,6 +1,6 @@
 import UserSchema from '../UserSchema'
-import { User as User } from '../UserModels'
-import { generateToken, hashPassword } from '../utils/auth'
+import { User as User } from '../UserTypes'
+import { generateToken, hashPassword } from '../../auth'
 
 export type Input = {
   name: string
