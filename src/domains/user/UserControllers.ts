@@ -1,9 +1,9 @@
-import Koa from 'koa'
+import { Context, Next } from 'koa'
 
 import createUser, { Input as CreateUserInput } from './business/createUser'
 import loginUser, { Input as LoginUserInput } from './business/login'
 
-export const postUsers = async (ctx: Koa.Context, next: () => Promise<any>) => {
+export const postUsers = async (ctx: Context, next: Next) => {
   const { name, email, password } = ctx.request.body
 
   const newUser: CreateUserInput = {
@@ -25,7 +25,7 @@ export const postUsers = async (ctx: Koa.Context, next: () => Promise<any>) => {
   next()
 }
 
-export const postAuth = async (ctx: Koa.Context, next: () => Promise<any>) => {
+export const postAuth = async (ctx: Context, next: Next) => {
   const { email, password } = ctx.request.body
 
   const credentials: LoginUserInput = {

@@ -1,5 +1,5 @@
-import { UserDomain } from './domains'
+import { UserDomain, SpaceDomain } from './domains'
 
-const routes = [UserDomain.UserRoutes]
+const routes = [UserDomain.routes, SpaceDomain.routes]
 
 export default routes

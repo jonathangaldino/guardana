@@ -1,5 +1,4 @@
-import UserRoutes from './user/UserRoutes'
+import * as UserDomain from './user'
+import * as SpaceDomain from './space'
 
-export const UserDomain = {
-  UserRoutes,
-}
+export { UserDomain, SpaceDomain }
