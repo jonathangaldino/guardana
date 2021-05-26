@@ -13,5 +13,6 @@ router
     checkAuthentication,
     SpaceControllers.postSpaces,
   )
+  .get('/', checkTokenPresence, checkAuthentication, SpaceControllers.getSpaces)
 
 export default router
