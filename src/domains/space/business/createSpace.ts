@@ -17,8 +17,8 @@ const createSpace = async ({
   size,
   userEmail,
 }: Input) => {
-  /** Space Size é valido? */
-  if (!Object.values(SpaceSize).includes(size)) {
+  const sizes = Object.keys(SpaceSize)
+  if (!sizes.includes(size)) {
     throw new Error('Space size isnt valid')
   }
 

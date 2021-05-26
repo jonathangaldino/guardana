@@ -1,8 +1,8 @@
 export enum SpaceSize {
-  mini,
-  little,
-  medium,
-  large,
+  mini = 'mini',
+  little = 'little',
+  medium = 'medium',
+  large = 'large',
 }
 
 export type Space = {
