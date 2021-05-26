@@ -1,4 +1,4 @@
 import checkTokenPresence from './checkTokenPresence'
-import CheckAuthentication from './CheckAuthentication'
+import checkAuthentication from './checkAuthentication'
 
-export { checkTokenPresence, CheckAuthentication }
+export { checkTokenPresence, checkAuthentication }

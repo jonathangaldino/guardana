@@ -1,7 +1,7 @@
 import Router from '@koa/router'
 import * as SpaceControllers from './SpaceControllers'
 
-import { checkTokenPresence, CheckAuthentication } from '../middlewares'
+import { checkTokenPresence, checkAuthentication } from '../middlewares'
 
 const router: Router = new Router()
 
@@ -10,7 +10,7 @@ router
   .post(
     '/',
     checkTokenPresence,
-    CheckAuthentication,
+    checkAuthentication,
     SpaceControllers.postSpaces,
   )
 
