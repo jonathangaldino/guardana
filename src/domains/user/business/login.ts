@@ -7,7 +7,8 @@ export type Input = {
   unhashedPassword: string
 }
 
-interface Output extends Partial<User> {
+interface Output {
+  user: Partial<User>
   token: string
 }
 
@@ -26,8 +27,10 @@ const logIn = async ({ email, unhashedPassword }: Input) => {
   }
 
   const output: Output = {
-    name: user.name,
-    email: user.email,
+    user: {
+      name: user.name,
+      email: user.email,
+    },
     token: generateToken({ email: user.email }),
   }
 

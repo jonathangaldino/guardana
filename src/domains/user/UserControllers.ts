@@ -34,9 +34,9 @@ export const postAuth = async (ctx: Context, next: Next) => {
   }
 
   try {
-    const user = await loginUser(credentials)
+    const { user, token } = await loginUser(credentials)
 
-    ctx.body = { message: 'Logged in', user }
+    ctx.body = { message: 'Logged in', user, token }
     ctx.status = 201
   } catch (err) {
     ctx.body = { message: err.message }
