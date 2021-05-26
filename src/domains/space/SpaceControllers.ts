@@ -8,10 +8,14 @@ export const postSpaces = async (
 ) => {
   const { displayName, description, size } = ctx.request.body
 
+  // Provided by `checkAuthenticationMiddleware`
+  const { email: userEmail } = ctx.authenticated
+
   const newSpace: CreateSpaceInput = {
     displayName,
     description,
     size,
+    userEmail,
   }
 
   try {
