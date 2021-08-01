@@ -1,5 +1,9 @@
 import { UserDomain, SpaceDomain } from './domains'
+import Koa from 'koa'
 
-const routes = [UserDomain.routes, SpaceDomain.routes]
+const applyRoutes = (app: Koa) => {
+  app.use(UserDomain.routes.routes())
+  app.use(SpaceDomain.routes.routes())
+}
 
-export default routes
+export default applyRoutes

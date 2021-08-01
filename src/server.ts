@@ -1,17 +1,13 @@
 import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
 
-import routes from './routes'
+import applyRoutes from './routes'
 
 const app = new Koa()
 
-/** Top-level Middlewares */
 app.use(bodyParser())
-/** ---------------------- */
 
-/**
- * Load each route
- */
-routes.forEach((route) => app.use(route.routes()))
+// Apply each route
+applyRoutes(app)
 
 export default app
