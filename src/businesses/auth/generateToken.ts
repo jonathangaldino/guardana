@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 
 import config from '../../config'
-import { User } from '../user/UserTypes'
-import { JWTEncode } from '../auth/AuthTypes'
+import { User } from '../../types/user.types'
+import { JWTEncode } from '../../types/auth.types'
 
 const generateToken = (user: Partial<User>) => {
   const tokenData: JWTEncode = {

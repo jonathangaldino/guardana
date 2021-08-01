@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import { Context, Next } from 'koa'
 
-import config from '../../config'
-import { types as AuthTypes } from '../auth'
+import config from '../config'
+import { types as AuthTypes } from '../businesses/auth'
 
 const checkAuthentication = async (ctx: Context, next: Next) => {
   const { authToken } = ctx

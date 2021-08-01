@@ -1,5 +1,5 @@
 import Router from '@koa/router'
-import * as SpaceControllers from './SpaceControllers'
+import * as SpaceControllers from '../controllers/space.controller'
 
 import { checkTokenPresence, checkAuthentication } from '../middlewares'
 

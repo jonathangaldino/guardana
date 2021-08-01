@@ -1,6 +1,6 @@
 import { Types } from 'mongoose'
 import { Schema, model } from 'mongoose'
-import { Space as ISpace, SpaceSize } from './SpaceTypes'
+import { Space as ISpace, SpaceSize } from '../../types/space.types'
 
 const SpaceSchema = new Schema<ISpace>({
   displayName: { type: String, required: true },

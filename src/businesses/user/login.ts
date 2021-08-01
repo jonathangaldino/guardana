@@ -1,6 +1,6 @@
-import UserSchema from '../UserSchema'
-import { User as User } from '../UserTypes'
-import { hashPassword, generateToken } from '../../auth'
+import UserModel from '../../database/schemas/user.schema'
+import { User as User } from '../../types/user.types'
+import { generateToken, hashPassword } from '../auth'
 
 export type Input = {
   email: string
@@ -13,7 +13,7 @@ interface Output {
 }
 
 const logIn = async ({ email, unhashedPassword }: Input) => {
-  const user = await UserSchema.findOne({ email })
+  const user = await UserModel.findOne({ email })
 
   if (!user) {
     throw new Error('Email or Password is invalid')

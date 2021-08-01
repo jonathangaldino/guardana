@@ -1,7 +1,9 @@
 import { Context, Next } from 'koa'
 
-import createUser, { Input as CreateUserInput } from './business/createUser'
-import loginUser, { Input as LoginUserInput } from './business/login'
+import createUser, {
+  Input as CreateUserInput,
+} from '../businesses/user/createUser'
+import loginUser, { Input as LoginUserInput } from '../businesses/user/login'
 
 export const postUsers = async (ctx: Context, next: Next) => {
   const { name, email, password } = ctx.request.body

@@ -1,7 +1,9 @@
 import Koa from 'koa'
 
-import createSpace, { Input as CreateSpaceInput } from './business/createSpace'
-import listSpaces from './business/listSpaces'
+import createSpace, {
+  Input as CreateSpaceInput,
+} from '../businesses/space/createSpace'
+import listSpaces from '../businesses/space/listSpaces'
 
 export const postSpaces = async (
   ctx: Koa.Context,

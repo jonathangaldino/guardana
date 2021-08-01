@@ -1,5 +1,5 @@
-import SpaceSchema from '../SpaceSchema'
-import { SpaceSize } from '../SpaceTypes'
+import SpaceModel from '../../database/schemas/space.schema'
+import { SpaceSize } from '../../types/space.types'
 
 type Filters = {
   size: string
@@ -12,7 +12,7 @@ export type Input = {
 const listSpaces = async ({ filters }: Input) => {
   const validFilters = validateFilters(filters)
 
-  const spaces = await SpaceSchema.find(validFilters)
+  const spaces = await SpaceModel.find(validFilters)
 
   return {
     count: spaces.length,

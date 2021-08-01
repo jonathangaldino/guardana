@@ -1,4 +1,4 @@
-import { Space } from '../space/SpaceTypes'
+import { Space } from './space.types'
 
 export type User = {
   name: string

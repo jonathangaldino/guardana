@@ -1,6 +1,6 @@
-import SpaceSchema from '../SpaceSchema'
-import { schema as UserSchema } from '../../user'
-import { Space, SpaceSize } from '../SpaceTypes'
+import SpaceSchema from '../../database/schemas/space.schema'
+import UserModel from '../../database/schemas/user.schema'
+import { Space, SpaceSize } from '../../types/space.types'
 
 export type Input = {
   displayName: string
@@ -22,7 +22,7 @@ const createSpace = async ({
     throw new Error('Space size isnt valid')
   }
 
-  const user = await UserSchema.findOne({ email: userEmail })
+  const user = await UserModel.findOne({ email: userEmail })
 
   if (!user) {
     throw new Error('User not found')
