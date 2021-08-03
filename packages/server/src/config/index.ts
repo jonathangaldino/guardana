@@ -1,5 +1,9 @@
 import dotenv from 'dotenv-safe'
-dotenv.config()
+import path from 'path'
+
+const envPath = path.resolve(__dirname, '..', '..', '.env')
+
+dotenv.config({ path: envPath })
 
 interface AppConfig {
   PORT: string

@@ -3,9 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 const WebpackNodeExternals = require('webpack-node-externals')
-const ReloadServerPlugin = require('./webpack/ReloadServerPlugin')
-
-const cwd = process.cwd()
+const ReloadServerPlugin = require('./ReloadServerPlugin')
 
 const filename = 'api.js'
 
@@ -13,7 +11,7 @@ module.exports = {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
   entry: {
-    server: ['./src/index.ts'],
+    server: ['../server/src/index.ts'],
   },
   output: {
     path: path.resolve('build'),

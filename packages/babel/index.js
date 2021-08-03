@@ -1,16 +1,16 @@
-{
-  "presets": [
+module.exports = {
+  presets: [
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "node": "current"
+        targets: {
+          node: "current"
         }
       }
     ],
     "@babel/preset-typescript"
   ],
-  "plugins": [
+  plugins: [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",
