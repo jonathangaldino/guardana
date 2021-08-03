@@ -3,15 +3,15 @@ const path = require('path')
 const webpack = require('webpack')
 
 const WebpackNodeExternals = require('webpack-node-externals')
-const ReloadServerPlugin = require('./ReloadServerPlugin')
+const ReloadServerPlugin = require('@guardana/webpack/ReloadServerPlugin')
 
-const filename = 'api.js'
+const filename = 'server.js'
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-cheap-source-map',
   entry: {
-    server: ['../server/src/index.ts'],
+    server: ['./src/index.ts'],
   },
   output: {
     path: path.resolve('build'),
@@ -25,6 +25,8 @@ module.exports = {
     WebpackNodeExternals({
       allowlist: ['webpack/hot/poll?1000'],
     }),
+    'mongodb-client-encryption',
+    'aws4',
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.mjs'],

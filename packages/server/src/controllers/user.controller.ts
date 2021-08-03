@@ -22,6 +22,7 @@ export const postUsers = async (ctx: Context, next: Next) => {
   } catch (err) {
     ctx.body = { message: err.message }
     ctx.status = 500
+    ctx.app.emit('error', err, ctx)
   }
 
   next()
@@ -43,6 +44,7 @@ export const postAuth = async (ctx: Context, next: Next) => {
   } catch (err) {
     ctx.body = { message: err.message }
     ctx.status = 500
+    ctx.app.emit('error', err, ctx)
   }
 
   next()

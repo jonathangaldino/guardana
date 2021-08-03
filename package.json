@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "server:dev": "yarn workspace @guardana/webpack start"
+    "server:dev": "yarn workspace @guardana/server dev"
   },
   "devDependencies": {
     "typescript": "^4.2.4"

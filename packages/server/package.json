@@ -2,13 +2,13 @@
   "name": "@guardana/server",
   "version": "1.0.0",
   "description": "API do Guardana",
-  "main": "index.js",
+  "main": "src/index.ts",
   "repository": "git@github.com:jonathangaldino/guardana-server.git",
   "author": "Jonathan Galdino <johnzballad@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "babel-node -x \".ts\" src/index.ts",
-    "dev": "webpack --watch --progress --config webpack.config.js",
+    "dev": "webpack --watch --config webpack.config.js",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "build": "npm run build:types && npm run build:js",
@@ -23,7 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
-    "mongoose": "^5.12.9"
+    "mongoose": "^5.13.5"
   },
   "devDependencies": {
     "@types/dotenv-safe": "^8.1.1",
