@@ -25,8 +25,6 @@ module.exports = {
     WebpackNodeExternals({
       allowlist: ['webpack/hot/poll?1000'],
     }),
-    'mongodb-client-encryption',
-    'aws4',
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.mjs'],
