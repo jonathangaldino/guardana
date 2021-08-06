@@ -3,11 +3,9 @@ const path = require('path')
 const webpack = require('webpack')
 
 const WebpackNodeExternals = require('webpack-node-externals')
-const ReloadServerPlugin = require('./webpack/ReloadServerPlugin')
+const ReloadServerPlugin = require('@guardana/webpack/ReloadServerPlugin')
 
-const cwd = process.cwd()
-
-const filename = 'api.js'
+const filename = 'server.js'
 
 module.exports = {
   mode: 'development',
@@ -27,6 +25,8 @@ module.exports = {
     WebpackNodeExternals({
       allowlist: ['webpack/hot/poll?1000'],
     }),
+    'mongodb-client-encryption',
+    'aws4',
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.mjs'],
@@ -51,6 +51,7 @@ module.exports = {
     new ReloadServerPlugin({
       script: path.resolve('build', filename),
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),

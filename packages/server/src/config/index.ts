@@ -1,4 +1,5 @@
 import dotenv from 'dotenv-safe'
+
 dotenv.config()
 
 interface AppConfig {
