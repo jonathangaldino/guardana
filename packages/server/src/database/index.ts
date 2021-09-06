@@ -10,7 +10,7 @@ declare module 'mongoose' {
   }
 }
 
-function connectDatabase() {
+function connectDatabase(): Promise<void> {
   return new Promise((resolve, reject) => {
     mongoose.Promise = global.Promise
     mongoose.connection
@@ -34,7 +34,7 @@ function connectDatabase() {
           ),
         )
         // Return successful promise
-        resolve({})
+        resolve()
       })
 
     mongoose.connect(Config.DATABASE_URL, {

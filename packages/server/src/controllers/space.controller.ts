@@ -1,15 +1,22 @@
-import Koa from 'koa'
+import { Context, Next } from 'koa'
 
 import createSpace, {
   Input as CreateSpaceInput,
 } from '../businesses/space/createSpace'
 import listSpaces from '../businesses/space/listSpaces'
 
+interface PostSpaceRequest {
+  displayName: string
+  description: string
+  size: string
+}
+
 export const postSpaces = async (
-  ctx: Koa.Context,
-  next: () => Promise<any>,
-) => {
-  const { displayName, description, size } = ctx.request.body
+  ctx: Context,
+  next: () => Next,
+): Promise<void> => {
+  const { displayName, description, size } = ctx.request
+    .body as unknown as PostSpaceRequest
 
   // Provided by `checkAuthenticationMiddleware`
   const { email: userEmail } = ctx.authenticated
@@ -34,11 +41,15 @@ export const postSpaces = async (
   next()
 }
 
-export const getSpaces = async (ctx: Koa.Context, next: () => Promise<any>) => {
-  const { size } = ctx.query
+interface GetSpaceRequest {
+  size: string
+}
+
+export const getSpaces = async (ctx: Context, next: Next): Promise<void> => {
+  const { size } = ctx.query as unknown as GetSpaceRequest
 
   const filters = {
-    size: <string>size,
+    size,
   }
 
   try {

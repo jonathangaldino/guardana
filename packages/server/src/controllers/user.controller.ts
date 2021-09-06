@@ -5,8 +5,15 @@ import createUser, {
 } from '../businesses/user/createUser'
 import loginUser, { Input as LoginUserInput } from '../businesses/user/login'
 
-export const postUsers = async (ctx: Context, next: Next) => {
-  const { name, email, password } = ctx.request.body
+interface PostUsersRequest {
+  name: string
+  email: string
+  password: string
+}
+
+export const postUsers = async (ctx: Context, next: Next): Promise<void> => {
+  const { name, email, password } = ctx.request
+    .body as unknown as PostUsersRequest
 
   const newUser: CreateUserInput = {
     name,
@@ -28,8 +35,14 @@ export const postUsers = async (ctx: Context, next: Next) => {
   next()
 }
 
-export const postAuth = async (ctx: Context, next: Next) => {
-  const { email, password } = ctx.request.body
+interface PostAuthRequest {
+  name: string
+  email: string
+  password: string
+}
+
+export const postAuth = async (ctx: Context, next: Next): Promise<void> => {
+  const { email, password } = ctx.request.body as unknown as PostAuthRequest
 
   const credentials: LoginUserInput = {
     email,
